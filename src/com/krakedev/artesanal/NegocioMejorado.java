@@ -4,9 +4,19 @@ import java.util.ArrayList;
 
 public class NegocioMejorado {
 	
+	private String nombre;
+	
 	private ArrayList<Maquina> maquinas = new ArrayList<>();
 	
 	private ArrayList<Cliente> clientes = new ArrayList<>();
+	
+	public ArrayList<Cliente> getClientes(){
+		return clientes;
+	}
+	
+	public void setClientes(ArrayList<Cliente> clientes) {
+		this.clientes = clientes;
+	}
 	
 	private int ultimoCodigo = 100;
 	
@@ -15,10 +25,21 @@ public class NegocioMejorado {
 	public ArrayList<Maquina> getMaquinas() {
 		return maquinas;
 	}
-
+	
 	public void setMaquinas(ArrayList<Maquina> maquinas) {
 		this.maquinas = maquinas;
 	}
+	
+	
+	
+	public NegocioMejorado() {}
+	
+	public NegocioMejorado(String nombre) {
+		this.nombre = nombre;
+	}
+
+	
+
 	
 	//parte 1
 	public String generarCodigo() {
@@ -106,6 +127,15 @@ public class NegocioMejorado {
 		cliente.setTotalConsumido(cliente.getTotalConsumido() + valor);
 	}
 	
+	public double consultarValorVendido() {
+		double total = 0;
+		for(int i = 0; i < clientes.size(); i ++) {
+			Cliente c = clientes.get(i);
+			
+			total += c.getTotalConsumido();
+		}
+		return total;
+	}
 	
 	
 	
