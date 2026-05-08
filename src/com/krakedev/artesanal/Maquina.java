@@ -7,6 +7,7 @@ public class Maquina {
 	private double capacidadMxima;
 	private double cantidadActual;
 	private String codigo;
+	private double cantidadDesperdiciada;
 	
 	public Maquina(String nombreCerveza, String descripcion, double precioPorMl,
 			double capacidadMaxima, String codigo) {
@@ -61,12 +62,20 @@ public class Maquina {
 	public double getCantidadActual() {
 		return cantidadActual;
 	}
+	
 
+	public double getCantidadDesperdiciada() {
+		return cantidadDesperdiciada;
+	}
+	public void setCantidadDesperdiciada(double cantidadDesperdiciada) {
+		this.cantidadDesperdiciada = cantidadDesperdiciada;
+	}
+	
 	public void imprimir() {
 		String mensaje;
 		mensaje = "Nombre cerveza: " + nombreCerveza + ", Descripcion: " + descripcion + ", Precio por Ml: "
 				+ precioPorMl + ", Capacidad maxima: " + capacidadMxima + ", Cantidad actual: " + cantidadActual +
-				",Codigo: " + codigo;
+				",Codigo: " + codigo +  ", Cantidad Desperdicio: " + cantidadDesperdiciada;
 		System.out.println(mensaje);
 
 	}
@@ -97,5 +106,12 @@ public class Maquina {
 		}else {
 			return 0;
 		}
+		
 	}
+	
+	public void vaciarMaquina() {
+		this.cantidadDesperdiciada = this.getCantidadActual();
+		this.cantidadActual = 0;
+	}
+	
 }
